@@ -64,6 +64,7 @@ void TrieNode::search_helper(
         if (this->is_word && this->satisfies_mandatory(word, mandatory)) {
             storage->push_back(word);
         }
+        // ugly; should really be only one for loop, but why waste time and memory combining two sets?
         for (const char &i : mandatory) {
             if (this->children.find(i) != this->children.end()) {
                 std::string new_word = word;

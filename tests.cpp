@@ -42,4 +42,16 @@ TEST_F(TrieNodeTest, Search) {
 
     std::vector<std::string> search_results = this->root.search(mandatory, auxiliary);
     EXPECT_EQ(search_results.size(), 3);
+    mandatory.insert('f');
+    EXPECT_THROW(this->root.search(mandatory, auxiliary), std::invalid_argument);
 }
+
+//TEST_F(TrieNodeTest, SatisfiesMandatory) {
+//    std::set<char> mandatory = {'e'};
+//
+//    std::string test_true = "friend";
+//    std::string test_false = "unfair";
+//
+//    EXPECT_TRUE(this->root.satisfies_mandatory(test_true, mandatory));
+//    EXPECT_FALSE(this->root.satisfies_mandatory(test_false, mandatory));
+//}
