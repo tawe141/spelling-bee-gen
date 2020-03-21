@@ -26,12 +26,13 @@ private:
     );
 public:
     explicit TrieNode(bool is_word = false);
+    explicit TrieNode(std::vector<std::string> &v);
     void add(std::string s);
     bool exists(std::string s);
     std::vector<std::string> search(
             const std::set<char> &mandatory,
             const std::set<char> &auxiliary,
-            const uint8_t depth_limit = 12
+            const uint8_t depth_limit = 15
                     );
 };
 

@@ -10,6 +10,13 @@ TrieNode::TrieNode(bool is_word) {
     this->is_word = is_word;
 }
 
+TrieNode::TrieNode(std::vector<std::string> &v) {
+    this->is_word = false;
+    for (std::string &s : v) {
+        this->add(s);
+    }
+}
+
 void TrieNode::add(std::string s) {
     if (!s.empty()) {
         char x = s[0];

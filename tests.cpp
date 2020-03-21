@@ -36,6 +36,13 @@ TEST_F(TrieNodeTest, AddAndExists) {
     EXPECT_FALSE(root.exists("succ"));
 }
 
+TEST_F(TrieNodeTest, MassAdd) {
+    TrieNode new_root = TrieNode(this->list_of_words);
+    for (std::string &i : this->list_of_words) {
+        EXPECT_TRUE(new_root.exists(i));
+    }
+}
+
 TEST_F(TrieNodeTest, Search) {
     std::set<char> mandatory = {'e'};
     std::set<char> auxiliary = {'f', 'o', 'r', 'i', 'n', 'd'};
