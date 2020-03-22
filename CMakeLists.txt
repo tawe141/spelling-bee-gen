@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 project(spelling-bee-gen)
 
+# require python library
+find_package(PythonLibs REQUIRED)
+include_directories(${PYTHON_INCLUDE_DIRS})
+include_directories("pybind11/include")
+
 # from GoogleTest readme found here: https://github.com/google/googletest/blob/master/googletest/README.md
 # downloads GoogleTest, then links the libraries when it compiles
 
@@ -37,6 +42,11 @@ endif()
 
 add_executable(spelling-bee-gen main.cpp trie.cpp trie.h)
 
+target_link_libraries(spelling-bee-gen ${PYTHON_LIBRARIES})
+
 add_executable(tests tests.cpp trie.h trie.cpp)
 #add_compile_options(-fPIC)
-target_link_libraries(tests gtest gtest_main)
+target_link_libraries(tests gtest gtest_main ${PYTHON_LIBRARIES})
+
+add_subdirectory(pybind11)
+pybind11_add_module(py_spelling_bee_gen trie.h trie.cpp)

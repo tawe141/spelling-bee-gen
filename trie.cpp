@@ -4,6 +4,7 @@
 
 #include "trie.h"
 #include <iostream>
+#include <pybind11/stl.h>
 
 
 TrieNode::TrieNode(bool is_word) {
@@ -106,4 +107,16 @@ std::vector<std::string> TrieNode::search(
     this->search_helper(mandatory, auxiliary, &storage, depth_limit, word_init);
 
     return storage;
+}
+
+PYBIND11_MODULE(py_spelling_bee_gen, m) {
+    m.doc() = "NYTimes Spelling Bee Solver. Generator features coming soon. Written in C++/Python.";
+    py::class_<TrieNode>(m, "TrieNode")
+            .def(py::init<std::vector<std::string> &>())
+            .def("add", &TrieNode::add)
+            .def("exists", &TrieNode::exists)
+            .def("search", &TrieNode::search,
+                    py::arg("mandatory"),
+                    py::arg("auxiliary"),
+                    py::arg("depth_limit")=15);
 }

@@ -1,2 +1,8 @@
 cmake-build-debug
 cmake-build-release
+build
+dist
+*.egg-info
+venv
+.idea
+__pycache__
