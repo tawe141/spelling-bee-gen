@@ -3,7 +3,7 @@ from flask import Flask
 import gc
 import os
 
-with open('english-words/words_alpha.txt', 'r') as f:
+with open('dictionary/enable1.txt', 'r') as f:
     lines = [i[:-1] for i in f.readlines()]  # last character is \n, which should be removed
     trie = py_spelling_bee_gen.TrieNode(lines)
 del lines
@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return {'msg': 'Simple NYTimes Spelling Bee solutions generator',
-            'dictionary': 'https://github.com/dwyl/english-words'}
+            'dictionary': 'enable1.txt from https://github.com/dolph/dictionary'}
 
 
 @app.route('/<mandatory>/<auxiliary>')

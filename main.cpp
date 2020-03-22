@@ -12,7 +12,7 @@ int main() {
     TrieNode root;
 
     std::string tmp;
-    std::ifstream in("../english-words/words_alpha.txt");
+    std::ifstream in("../dictionary/enable1.txt");
     while (std::getline(in, tmp)) {
         // pop_back once to get rid of '\r'
         tmp.pop_back();

@@ -1,6 +1,6 @@
-[submodule "english-words"]
-	path = english-words
-	url = git@github.com:dwyl/english-words.git
 [submodule "pybind11"]
 	path = pybind11
 	url = git@github.com:pybind/pybind11.git
+[submodule "dictionary"]
+	path = dictionary
+	url = git@github.com:dolph/dictionary.git
