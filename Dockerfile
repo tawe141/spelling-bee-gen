@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 
 COPY *.cpp *.h *.py CMakeLists* requirements.txt ./
 
-COPY english-words ./english-words
+COPY dictionary ./dictionary
 COPY pybind11 ./pybind11
 
 RUN pip install -r requirements.txt
