@@ -1,6 +1,7 @@
 import py_spelling_bee_gen
 from flask import Flask
 import gc
+import os
 
 with open('english-words/words_alpha.txt', 'r') as f:
     lines = [i[:-1] for i in f.readlines()]  # last character is \n, which should be removed
@@ -27,4 +28,4 @@ def search(mandatory: str, auxiliary: str):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=int(os.environ['PORT']))

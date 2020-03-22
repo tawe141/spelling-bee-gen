@@ -1,6 +1,8 @@
 # taken from pybind's cmake example as of March 21, 2020
 # https://github.com/pybind/cmake_example/blob/master/setup.py
 
+# TODO: get this to build a particular cmake target, not tests or main
+
 import os
 import re
 import sys

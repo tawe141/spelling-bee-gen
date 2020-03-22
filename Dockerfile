@@ -16,4 +16,4 @@ RUN python setup.py install
 
 EXPOSE 8080
 
-CMD ["gunicorn", "-b", ":$PORT", "server:app"]
+CMD ["gunicorn", "server:app"]
